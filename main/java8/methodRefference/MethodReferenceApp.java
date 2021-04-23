@@ -45,14 +45,16 @@ public class MethodReferenceApp {
         System.out.println();
 
         // 불특정 다수에 대해 참조하는 방법
-        String[] names = {"keesun", "ehoto", "toby"};
-        Arrays.sort(names, new Comparator<Object>() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
-        });
+        String[] names = {"keesun", "ehoto", "zipper", "toby", "apple"};
+//        Arrays.sort(names, new Comparator<Object>() {
+//            @Override
+//            public int compare(Object o1, Object o2) {
+//                return 0;
+//            }
+//        });
         // Comparator가 자바 8부터는 Functional Interface로 변경되었기 때문에 축약하여 사용할 수 있다.
+        Arrays.sort(names, String::compareToIgnoreCase); // 임의의 객체의 인스턴스 메소드 참조 방식.
+        System.out.println(Arrays.toString(names));
 
     }
 
